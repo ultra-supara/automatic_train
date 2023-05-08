@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+      <meta charset="UTF-8">
+
+    <title>Upload new File</title>
+  </head>
+  <body>
+    <h1>Upload new File</h1>
+    <form action="{{ url_for('label') }}" method="POST" enctype=multipart/form-data>
+      <input type=file name=file>
+      <input type=submit value=Upload name=Upload>
+    </form>
+
+    <form action="{{ url_for('label') }}" method="POST">
+      <br><br><input type=submit value='status' name='status'>
+    </form>
+    <div class = "page-header">
+    {%if Jlist%}
+    <table border="5">
+    {%for pic in Jlist%}
+    <tbody>
+    <tr>
+    <th colspan="10"><h3 class="text-primary"><a href="{{url_for('static',filename='upload/'+pic)}}">{{pic}}</a></h3>
+    </th>
+    </tr>
+    <tr>
+    <td rowspan="2">
+    <img src="{{url_for('static',filename='upload/'+pic)}}" width="320" height="320">
+    </td>
+    {%for class in cropnamelist[loop.index0]%}
+    <td>
+    <h3 class="text-primary"><a>{{class}}</a></h3>
+    </td>
+    {%endfor%}
+    </tr>
+    <tr>
+    {%for crop in croplist[loop.index0]%}
+    <td>
+    <img src="{{url_for('static',filename='cropped/'+crop)}}" width="160" height="160">
+    </td>
+    {%endfor%}
+    </tr>
+    {%endfor%}
+    </table>
+    {%endif%}
+    </div>
+    <form action="{{ url_for('label') }}" method="POST">
+      <br><br><input type=submit value='error detect' name='error'>
+    </form>
+    {%if ndel%}
+    <h3 class="text-primary"><a>{{ndel-1}} file(s) without completeness deleted!</a></h3>
+    {%endif%}
+  </body>
+</html>

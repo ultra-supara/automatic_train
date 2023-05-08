@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <title>JST detection</title>
+  </head>
+
+  <style type="text/css">
+    h1 {text-align: center; font-size: small;}
+    h2 {text-align: left}
+    h3 {text-align: center; font-size: medium; color: rgb(179, 179, 179);}
+		</style>
+  <body class="text-center">
+    <br>
+    <h2><a href="https://research-db.ritsumei.ac.jp/rithp/k03/resid/S000904"><img class="" src="/static/menglab.png" alt="" width="160" high="160"></a></h2>
+    <br>
+    <form class="form-signin" method=post enctype=multipart/form-data>
+        <h1 class="h3 mb-3 font-weight-normal">Upload any image</h1>
+        <form enctype="multipart/form-data" method="post" action="">
+        <br>
+        <input type="file" name="image-file"  class="form-control-file" multiple id="image-file"  accept="image/*" multiple="multiple">
+        <br>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Upload</button><br>
+        <h3>Built using Tensorflow and Flask<br>
+          &copy; 2022 by Meng Lab. All rights reserved.</h3>
+
+    </form>
+    <script type="text/javascript">
+      $('#inputfile').bind('change', function() {
+          let fileSize = this.files[0].size/1024/1024; // this gives in MB
+          if (fileSize > 1) {
+            $("#inputfile").val(null);
+            alert('file is too big. images more than 1MB are not allowed')
+            return
+          }
+
+          let ext = $('#inputfile').val().split('.').pop().toLowerCase();
+          if($.inArray(ext, ['png','jpg','jpeg']) == -1) {
+            $("#inputfile").val(null);
+            alert('only png/jpeg/jpg files are allowed!');
+          }
+      });
+    </script>
+  </body>
+</html>

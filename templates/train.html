@@ -1,0 +1,116 @@
+<!--
+Author: WebThemez
+Author URL: http://webthemez.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TestForm</title>
+</head>
+<body>
+    <li><font = 5pt color = "red">Please select a network.</font></li>
+    <form action="{{ url_for('train') }}" method="POST">
+        {{ form.hidden_tag() }}
+        {{ form.backbones.label }}
+        {{ form.backbones }}
+        {{ form.necks.label }}
+        {{ form.necks }}
+        {{ form.batchsize.label }}
+        {{ form.batchsize }}
+        {{ form.imagesize.label }}
+        {{ form.imagesize }}
+        {{ form.epoch.label }}
+        {{ form.epoch }}
+        {{ form.train }}
+    </form>
+    <br><br>
+    <li><font = 5pt color = "red">Automatic train.</font></li>
+    <form action="{{ url_for('train') }}" method="POST">
+        {{ form.hidden_tag() }}
+        {{ form.batchsize.label }}
+        {{ form.batchsize }}
+        {{ form.imagesize.label }}
+        {{ form.imagesize }}
+        {{ form.epoch.label }}
+        {{ form.epoch }}
+        {{ form.evalu.label }}
+        {{ form.evalu }}
+        {{ form.auto_train }}
+    </form>
+    <br><br>
+    <li><font = 5pt color = "red">Please select a backbone.</font></li>
+    <form action="{{ url_for('train') }}" method="POST">
+        {{ form.hidden_tag() }}
+        {{ form.batchsize.label }}
+        {{ form.batchsize }}
+        {{ form.backbones.label }}
+        {{ form.backbones }}
+        {{ form.imagesize.label }}
+        {{ form.imagesize }}
+        {{ form.epoch.label }}
+        {{ form.epoch }}
+        {{ form.evalu.label }}
+        {{ form.evalu }}
+        {{ form.select_backbone }}
+    </form>
+    <br><br>
+    <li><font = 5pt color = "red">Please select a neck.</font></li>
+    <form action="{{ url_for('train') }}" method="POST">
+        {{ form.hidden_tag() }}
+        {{ form.batchsize.label }}
+        {{ form.batchsize }}
+        {{ form.necks.label }}
+        {{ form.necks }}
+        {{ form.imagesize.label }}
+        {{ form.imagesize }}
+        {{ form.epoch.label }}
+        {{ form.epoch }}
+        {{ form.evalu.label }}
+        {{ form.evalu }}
+        {{ form.select_neck }}
+    </form>
+    <br><br>
+    <li><font = 5pt color = "red">Please select a evalu_parames to get the best model.</font></li>
+    <form action="{{ url_for('train') }}" method="POST">
+        {{ form.hidden_tag() }}
+        {{ form.evalu.label }}
+        {{ form.evalu }}
+        {{ form.get_bestmodel }}
+    </form>
+
+    <form action="{{ url_for('train') }}" method="POST">
+        <br><input type=submit value='stop' name="stop">
+        </form>
+    <br>
+
+    {% if training %}
+        <h2 style="margin:1px 10px 0px 140px;;">
+            <font = 5pt color = "red">The program is training...</font>
+        </h2><br>
+    {% endif %}
+    {% if get %}
+        <h2 style="margin:1px 10px 0px 50px;;">
+            <font = 3pt color = "red">Please click <a href="/static/bestmodel.txt" target =_blank class="Training" > <color = "red"> this link </color></a>to get the best model!</font>
+        </h2><br>
+    {% endif %}
+    {% if end %}
+        <h2 style="margin:1px 10px 0px 200px;;">
+            <font = 5pt color = "red">Training done!</font>
+        </h2><br>
+    {% endif %}
+
+    <ul>
+        <h2 style="margin:0px 1px 50px 50px;;">
+        <li>Please click <a href="/static/train.txt" target =_blank class="Training" > <color = "red"> this link </color></a>for training information!
+        </li>
+        <li>Please click <a href="http://127.0.0.1:8001/result/" target =_blank class="Training" > <color = "red"> this link </color></a>for training results!
+        </li>
+            <font = 2pt color = "red">Atition:</font> If you wang to check the lastest information, please <font = 2pt color = "red">refresh</font> the new page and <font = 2pt color = "red">scroll to the bottom</font>!
+        </h2>
+        <br>
+    </ul>
+</body>
+</html>

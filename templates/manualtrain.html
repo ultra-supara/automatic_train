@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    <title>Manual Training</title>
+  </head>
+
+<style type="text/css">
+    h1 {text-align: center; font-size: small;}
+    h2 {text-align: left}
+    h3 {text-align: center; font-size: large; color: rgb(179, 179, 179);}
+    h4 {text-align: left; font-size: large;}
+    h5 {text-align: left; font-size: small;}
+</style>
+<style>
+p.ex1 {margin:0px 1px 50px 50px}</style>
+<body>
+    <br>
+    <a href="http://www.ihpc.se.ritsumei.ac.jp/"><img class="" src="/static/menglab.png" alt="" width="160" high="160"></a>
+    <a href="http://127.0.0.1:8001/">	&nbsp Home	&nbsp</a>
+    <a href="http://127.0.0.1:8001/autotrain/">	&nbsp Automatic	&nbsp</a>
+    <a href="http://127.0.0.1:8001/manualtrain/">	&nbsp Manual	&nbsp</a>
+    <a href="http://www.ihpc.se.ritsumei.ac.jp/iot/auto-test/">	&nbsp Detection	&nbsp</a>
+    <br>
+    <font = 8pt color = "red">&nbsp &nbsp &nbsp &nbsp Please select a network.</font>
+    <form action="{{ url_for('manualtrain') }}" method="POST">
+        <h5><font = 5pt >&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp</font>
+        {{ form.hidden_tag() }}
+        {{ form.backbones.label }}
+        {{ form.backbones }}
+        {{ form.necks.label }}
+        {{ form.necks }}
+        {{ form.batchsize.label }}
+        {{ form.batchsize }}
+        {{ form.imagesize.label }}
+        {{ form.imagesize }}
+        {{ form.epoch.label }}
+        {{ form.epoch }}
+        {{ form.train }}</h5>
+    </form>
+
+    <font = 8pt color = "red">&nbsp &nbsp &nbsp &nbsp Please select a backbone.</font>
+    <form action="{{ url_for('manualtrain') }}" method="POST">
+        <h5><font = 5pt >&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp</font>
+        {{ form.hidden_tag() }}
+        {{ form.batchsize.label }}
+        {{ form.batchsize }}
+        {{ form.backbones.label }}
+        {{ form.backbones }}
+        {{ form.imagesize.label }}
+        {{ form.imagesize }}
+        {{ form.epoch.label }}
+        {{ form.epoch }}
+        {{ form.evalu.label }}
+        {{ form.evalu }}
+        {{ form.select_backbone }}</h5>
+    </form>
+
+    <font = 8pt color = "red">&nbsp &nbsp &nbsp &nbsp Please select a neck.</font>
+    <form action="{{ url_for('manualtrain') }}" method="POST">
+        <h5><font = 5pt >&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp</font>
+        {{ form.hidden_tag() }}
+        {{ form.batchsize.label }}
+        {{ form.batchsize }}
+        {{ form.necks.label }}
+        {{ form.necks }}
+        {{ form.imagesize.label }}
+        {{ form.imagesize }}
+        {{ form.epoch.label }}
+        {{ form.epoch }}
+        {{ form.evalu.label }}
+        {{ form.evalu }}
+        {{ form.select_neck }}</h5>
+    </form>
+
+    <font = 8pt color = "red"> &nbsp &nbsp &nbsp &nbsp Please select a evalu_parames to get the best model.</font>
+    <form action="{{ url_for('manualtrain') }}" method="POST">
+        <h5><font = 5pt >&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp</font>
+        {{ form.hidden_tag() }}
+        {{ form.evalu.label }}
+        {{ form.evalu }}
+        {{ form.get_bestmodel }}</h5>
+    </form>
+
+    {% if training %}
+        <h2 style="margin:1px 10px 0px 140px;;">
+            <font = 5pt color = "red">The program is training...</font>
+        </h2><br>
+    {% endif %}
+    {% if get %}
+        <h2 style="margin:1px 10px 0px 50px;;">
+            <font = 3pt color = "red">Please click <a href="/static/bestmodel.txt" target =_blank class="Training" > <color = "red"> this link </color></a>to get the best model!</font>
+        </h2><br>
+    {% endif %}
+    {% if end %}
+        <h2 style="margin:1px 10px 0px 200px;;">
+            <font = 5pt color = "red">Training done!</font>
+        </h2><br>
+    {% endif %}
+
+    <ul>
+        <font = 5pt >&nbsp </font>
+        <h4>&nbsp Please click <a href="/static/train.txt" target =_blank class="Training" > <color = "red"> this link </color></a>for training information!
+        </h4>
+        <h4>&nbsp Please click <a href="http://127.0.0.1:8001/result/" target =_blank class="Training" > <color = "red"> this link </color></a>for training results!
+        </h4>
+         &nbsp <font = 2pt color = "red">Atition:</font> If you wang to check the lastest information, please <font = 2pt color = "red">refresh</font> the new page and <font = 2pt color = "red">scroll to the bottom</font>!
+
+        <br>
+    </ul>
+    <br>
+    <h1>&copy; 2023 by Meng Lab. All rights reserved.</h1>
+</body>
+</html>

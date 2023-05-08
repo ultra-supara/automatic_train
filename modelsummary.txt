@@ -1,0 +1,1151 @@
+Model: "model_75"
+__________________________________________________________________________________________________
+ Layer (type)                   Output Shape         Param #     Connected to                     
+==================================================================================================
+ input_111 (InputLayer)         [(None, 32, 32, 3)]  0           []                               
+                                                                                                  
+ focus_12 (Focus)               (None, 16, 16, 12)   0           ['input_111[0][0]']              
+                                                                                                  
+ backbone.stem.conv.conv (Conv2  (None, 16, 16, 64)  6912        ['focus_12[0][0]']               
+ D)                                                                                               
+                                                                                                  
+ backbone.stem.conv.bn (BatchNo  (None, 16, 16, 64)  256         ['backbone.stem.conv.conv[0][0]']
+ rmalization)                                                                                     
+                                                                                                  
+ si_lu_1940 (SiLU)              (None, 16, 16, 64)   0           ['backbone.stem.conv.bn[0][0]']  
+                                                                                                  
+ zero_padding2d_178 (ZeroPaddin  (None, 17, 17, 64)  0           ['si_lu_1940[0][0]']             
+ g2D)                                                                                             
+                                                                                                  
+ backbone.dark2.0.conv (Conv2D)  (None, 8, 8, 128)   73728       ['zero_padding2d_178[0][0]']     
+                                                                                                  
+ backbone.dark2.0.bn (BatchNorm  (None, 8, 8, 128)   512         ['backbone.dark2.0.conv[0][0]']  
+ alization)                                                                                       
+                                                                                                  
+ si_lu_1941 (SiLU)              (None, 8, 8, 128)    0           ['backbone.dark2.0.bn[0][0]']    
+                                                                                                  
+ backbone.dark2.1.cv1.conv (Con  (None, 8, 8, 64)    8192        ['si_lu_1941[0][0]']             
+ v2D)                                                                                             
+                                                                                                  
+ backbone.dark2.1.cv1.bn (Batch  (None, 8, 8, 64)    256         ['backbone.dark2.1.cv1.conv[0][0]
+ Normalization)                                                  ']                               
+                                                                                                  
+ si_lu_1942 (SiLU)              (None, 8, 8, 64)     0           ['backbone.dark2.1.cv1.bn[0][0]']
+                                                                                                  
+ backbone.dark2.1.m.0.cv1.conv   (None, 8, 8, 64)    4096        ['si_lu_1942[0][0]']             
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.dark2.1.m.0.cv1.bn (B  (None, 8, 8, 64)    256         ['backbone.dark2.1.m.0.cv1.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ si_lu_1944 (SiLU)              (None, 8, 8, 64)     0           ['backbone.dark2.1.m.0.cv1.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ backbone.dark2.1.m.0.cv2.conv   (None, 8, 8, 64)    36864       ['si_lu_1944[0][0]']             
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.dark2.1.m.0.cv2.bn (B  (None, 8, 8, 64)    256         ['backbone.dark2.1.m.0.cv2.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ si_lu_1945 (SiLU)              (None, 8, 8, 64)     0           ['backbone.dark2.1.m.0.cv2.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ add_558 (Add)                  (None, 8, 8, 64)     0           ['si_lu_1942[0][0]',             
+                                                                  'si_lu_1945[0][0]']             
+                                                                                                  
+ backbone.dark2.1.m.1.cv1.conv   (None, 8, 8, 64)    4096        ['add_558[0][0]']                
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.dark2.1.m.1.cv1.bn (B  (None, 8, 8, 64)    256         ['backbone.dark2.1.m.1.cv1.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ si_lu_1946 (SiLU)              (None, 8, 8, 64)     0           ['backbone.dark2.1.m.1.cv1.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ backbone.dark2.1.m.1.cv2.conv   (None, 8, 8, 64)    36864       ['si_lu_1946[0][0]']             
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.dark2.1.m.1.cv2.bn (B  (None, 8, 8, 64)    256         ['backbone.dark2.1.m.1.cv2.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ si_lu_1947 (SiLU)              (None, 8, 8, 64)     0           ['backbone.dark2.1.m.1.cv2.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ add_559 (Add)                  (None, 8, 8, 64)     0           ['add_558[0][0]',                
+                                                                  'si_lu_1947[0][0]']             
+                                                                                                  
+ backbone.dark2.1.m.2.cv1.conv   (None, 8, 8, 64)    4096        ['add_559[0][0]']                
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.dark2.1.m.2.cv1.bn (B  (None, 8, 8, 64)    256         ['backbone.dark2.1.m.2.cv1.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ si_lu_1948 (SiLU)              (None, 8, 8, 64)     0           ['backbone.dark2.1.m.2.cv1.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ backbone.dark2.1.m.2.cv2.conv   (None, 8, 8, 64)    36864       ['si_lu_1948[0][0]']             
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.dark2.1.m.2.cv2.bn (B  (None, 8, 8, 64)    256         ['backbone.dark2.1.m.2.cv2.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ backbone.dark2.1.cv2.conv (Con  (None, 8, 8, 64)    8192        ['si_lu_1941[0][0]']             
+ v2D)                                                                                             
+                                                                                                  
+ si_lu_1949 (SiLU)              (None, 8, 8, 64)     0           ['backbone.dark2.1.m.2.cv2.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ backbone.dark2.1.cv2.bn (Batch  (None, 8, 8, 64)    256         ['backbone.dark2.1.cv2.conv[0][0]
+ Normalization)                                                  ']                               
+                                                                                                  
+ add_560 (Add)                  (None, 8, 8, 64)     0           ['add_559[0][0]',                
+                                                                  'si_lu_1949[0][0]']             
+                                                                                                  
+ si_lu_1943 (SiLU)              (None, 8, 8, 64)     0           ['backbone.dark2.1.cv2.bn[0][0]']
+                                                                                                  
+ concatenate_372 (Concatenate)  (None, 8, 8, 128)    0           ['add_560[0][0]',                
+                                                                  'si_lu_1943[0][0]']             
+                                                                                                  
+ backbone.dark2.1.cv3.conv (Con  (None, 8, 8, 128)   16384       ['concatenate_372[0][0]']        
+ v2D)                                                                                             
+                                                                                                  
+ backbone.dark2.1.cv3.bn (Batch  (None, 8, 8, 128)   512         ['backbone.dark2.1.cv3.conv[0][0]
+ Normalization)                                                  ']                               
+                                                                                                  
+ si_lu_1950 (SiLU)              (None, 8, 8, 128)    0           ['backbone.dark2.1.cv3.bn[0][0]']
+                                                                                                  
+ zero_padding2d_179 (ZeroPaddin  (None, 9, 9, 128)   0           ['si_lu_1950[0][0]']             
+ g2D)                                                                                             
+                                                                                                  
+ backbone.dark3.0.conv (Conv2D)  (None, 4, 4, 256)   294912      ['zero_padding2d_179[0][0]']     
+                                                                                                  
+ backbone.dark3.0.bn (BatchNorm  (None, 4, 4, 256)   1024        ['backbone.dark3.0.conv[0][0]']  
+ alization)                                                                                       
+                                                                                                  
+ si_lu_1951 (SiLU)              (None, 4, 4, 256)    0           ['backbone.dark3.0.bn[0][0]']    
+                                                                                                  
+ backbone.dark3.1.cv1.conv (Con  (None, 4, 4, 128)   32768       ['si_lu_1951[0][0]']             
+ v2D)                                                                                             
+                                                                                                  
+ backbone.dark3.1.cv1.bn (Batch  (None, 4, 4, 128)   512         ['backbone.dark3.1.cv1.conv[0][0]
+ Normalization)                                                  ']                               
+                                                                                                  
+ si_lu_1952 (SiLU)              (None, 4, 4, 128)    0           ['backbone.dark3.1.cv1.bn[0][0]']
+                                                                                                  
+ backbone.dark3.1.m.0.cv1.conv   (None, 4, 4, 128)   16384       ['si_lu_1952[0][0]']             
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.dark3.1.m.0.cv1.bn (B  (None, 4, 4, 128)   512         ['backbone.dark3.1.m.0.cv1.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ si_lu_1954 (SiLU)              (None, 4, 4, 128)    0           ['backbone.dark3.1.m.0.cv1.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ backbone.dark3.1.m.0.cv2.conv   (None, 4, 4, 128)   147456      ['si_lu_1954[0][0]']             
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.dark3.1.m.0.cv2.bn (B  (None, 4, 4, 128)   512         ['backbone.dark3.1.m.0.cv2.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ si_lu_1955 (SiLU)              (None, 4, 4, 128)    0           ['backbone.dark3.1.m.0.cv2.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ add_561 (Add)                  (None, 4, 4, 128)    0           ['si_lu_1952[0][0]',             
+                                                                  'si_lu_1955[0][0]']             
+                                                                                                  
+ backbone.dark3.1.m.1.cv1.conv   (None, 4, 4, 128)   16384       ['add_561[0][0]']                
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.dark3.1.m.1.cv1.bn (B  (None, 4, 4, 128)   512         ['backbone.dark3.1.m.1.cv1.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ si_lu_1956 (SiLU)              (None, 4, 4, 128)    0           ['backbone.dark3.1.m.1.cv1.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ backbone.dark3.1.m.1.cv2.conv   (None, 4, 4, 128)   147456      ['si_lu_1956[0][0]']             
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.dark3.1.m.1.cv2.bn (B  (None, 4, 4, 128)   512         ['backbone.dark3.1.m.1.cv2.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ si_lu_1957 (SiLU)              (None, 4, 4, 128)    0           ['backbone.dark3.1.m.1.cv2.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ add_562 (Add)                  (None, 4, 4, 128)    0           ['add_561[0][0]',                
+                                                                  'si_lu_1957[0][0]']             
+                                                                                                  
+ backbone.dark3.1.m.2.cv1.conv   (None, 4, 4, 128)   16384       ['add_562[0][0]']                
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.dark3.1.m.2.cv1.bn (B  (None, 4, 4, 128)   512         ['backbone.dark3.1.m.2.cv1.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ si_lu_1958 (SiLU)              (None, 4, 4, 128)    0           ['backbone.dark3.1.m.2.cv1.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ backbone.dark3.1.m.2.cv2.conv   (None, 4, 4, 128)   147456      ['si_lu_1958[0][0]']             
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.dark3.1.m.2.cv2.bn (B  (None, 4, 4, 128)   512         ['backbone.dark3.1.m.2.cv2.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ si_lu_1959 (SiLU)              (None, 4, 4, 128)    0           ['backbone.dark3.1.m.2.cv2.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ add_563 (Add)                  (None, 4, 4, 128)    0           ['add_562[0][0]',                
+                                                                  'si_lu_1959[0][0]']             
+                                                                                                  
+ backbone.dark3.1.m.3.cv1.conv   (None, 4, 4, 128)   16384       ['add_563[0][0]']                
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.dark3.1.m.3.cv1.bn (B  (None, 4, 4, 128)   512         ['backbone.dark3.1.m.3.cv1.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ si_lu_1960 (SiLU)              (None, 4, 4, 128)    0           ['backbone.dark3.1.m.3.cv1.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ backbone.dark3.1.m.3.cv2.conv   (None, 4, 4, 128)   147456      ['si_lu_1960[0][0]']             
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.dark3.1.m.3.cv2.bn (B  (None, 4, 4, 128)   512         ['backbone.dark3.1.m.3.cv2.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ si_lu_1961 (SiLU)              (None, 4, 4, 128)    0           ['backbone.dark3.1.m.3.cv2.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ add_564 (Add)                  (None, 4, 4, 128)    0           ['add_563[0][0]',                
+                                                                  'si_lu_1961[0][0]']             
+                                                                                                  
+ backbone.dark3.1.m.4.cv1.conv   (None, 4, 4, 128)   16384       ['add_564[0][0]']                
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.dark3.1.m.4.cv1.bn (B  (None, 4, 4, 128)   512         ['backbone.dark3.1.m.4.cv1.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ si_lu_1962 (SiLU)              (None, 4, 4, 128)    0           ['backbone.dark3.1.m.4.cv1.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ backbone.dark3.1.m.4.cv2.conv   (None, 4, 4, 128)   147456      ['si_lu_1962[0][0]']             
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.dark3.1.m.4.cv2.bn (B  (None, 4, 4, 128)   512         ['backbone.dark3.1.m.4.cv2.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ si_lu_1963 (SiLU)              (None, 4, 4, 128)    0           ['backbone.dark3.1.m.4.cv2.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ add_565 (Add)                  (None, 4, 4, 128)    0           ['add_564[0][0]',                
+                                                                  'si_lu_1963[0][0]']             
+                                                                                                  
+ backbone.dark3.1.m.5.cv1.conv   (None, 4, 4, 128)   16384       ['add_565[0][0]']                
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.dark3.1.m.5.cv1.bn (B  (None, 4, 4, 128)   512         ['backbone.dark3.1.m.5.cv1.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ si_lu_1964 (SiLU)              (None, 4, 4, 128)    0           ['backbone.dark3.1.m.5.cv1.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ backbone.dark3.1.m.5.cv2.conv   (None, 4, 4, 128)   147456      ['si_lu_1964[0][0]']             
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.dark3.1.m.5.cv2.bn (B  (None, 4, 4, 128)   512         ['backbone.dark3.1.m.5.cv2.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ si_lu_1965 (SiLU)              (None, 4, 4, 128)    0           ['backbone.dark3.1.m.5.cv2.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ add_566 (Add)                  (None, 4, 4, 128)    0           ['add_565[0][0]',                
+                                                                  'si_lu_1965[0][0]']             
+                                                                                                  
+ backbone.dark3.1.m.6.cv1.conv   (None, 4, 4, 128)   16384       ['add_566[0][0]']                
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.dark3.1.m.6.cv1.bn (B  (None, 4, 4, 128)   512         ['backbone.dark3.1.m.6.cv1.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ si_lu_1966 (SiLU)              (None, 4, 4, 128)    0           ['backbone.dark3.1.m.6.cv1.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ backbone.dark3.1.m.6.cv2.conv   (None, 4, 4, 128)   147456      ['si_lu_1966[0][0]']             
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.dark3.1.m.6.cv2.bn (B  (None, 4, 4, 128)   512         ['backbone.dark3.1.m.6.cv2.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ si_lu_1967 (SiLU)              (None, 4, 4, 128)    0           ['backbone.dark3.1.m.6.cv2.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ add_567 (Add)                  (None, 4, 4, 128)    0           ['add_566[0][0]',                
+                                                                  'si_lu_1967[0][0]']             
+                                                                                                  
+ backbone.dark3.1.m.7.cv1.conv   (None, 4, 4, 128)   16384       ['add_567[0][0]']                
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.dark3.1.m.7.cv1.bn (B  (None, 4, 4, 128)   512         ['backbone.dark3.1.m.7.cv1.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ si_lu_1968 (SiLU)              (None, 4, 4, 128)    0           ['backbone.dark3.1.m.7.cv1.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ backbone.dark3.1.m.7.cv2.conv   (None, 4, 4, 128)   147456      ['si_lu_1968[0][0]']             
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.dark3.1.m.7.cv2.bn (B  (None, 4, 4, 128)   512         ['backbone.dark3.1.m.7.cv2.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ si_lu_1969 (SiLU)              (None, 4, 4, 128)    0           ['backbone.dark3.1.m.7.cv2.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ add_568 (Add)                  (None, 4, 4, 128)    0           ['add_567[0][0]',                
+                                                                  'si_lu_1969[0][0]']             
+                                                                                                  
+ backbone.dark3.1.m.8.cv1.conv   (None, 4, 4, 128)   16384       ['add_568[0][0]']                
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.dark3.1.m.8.cv1.bn (B  (None, 4, 4, 128)   512         ['backbone.dark3.1.m.8.cv1.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ si_lu_1970 (SiLU)              (None, 4, 4, 128)    0           ['backbone.dark3.1.m.8.cv1.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ backbone.dark3.1.m.8.cv2.conv   (None, 4, 4, 128)   147456      ['si_lu_1970[0][0]']             
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.dark3.1.m.8.cv2.bn (B  (None, 4, 4, 128)   512         ['backbone.dark3.1.m.8.cv2.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ backbone.dark3.1.cv2.conv (Con  (None, 4, 4, 128)   32768       ['si_lu_1951[0][0]']             
+ v2D)                                                                                             
+                                                                                                  
+ si_lu_1971 (SiLU)              (None, 4, 4, 128)    0           ['backbone.dark3.1.m.8.cv2.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ backbone.dark3.1.cv2.bn (Batch  (None, 4, 4, 128)   512         ['backbone.dark3.1.cv2.conv[0][0]
+ Normalization)                                                  ']                               
+                                                                                                  
+ add_569 (Add)                  (None, 4, 4, 128)    0           ['add_568[0][0]',                
+                                                                  'si_lu_1971[0][0]']             
+                                                                                                  
+ si_lu_1953 (SiLU)              (None, 4, 4, 128)    0           ['backbone.dark3.1.cv2.bn[0][0]']
+                                                                                                  
+ concatenate_373 (Concatenate)  (None, 4, 4, 256)    0           ['add_569[0][0]',                
+                                                                  'si_lu_1953[0][0]']             
+                                                                                                  
+ backbone.dark3.1.cv3.conv (Con  (None, 4, 4, 256)   65536       ['concatenate_373[0][0]']        
+ v2D)                                                                                             
+                                                                                                  
+ backbone.dark3.1.cv3.bn (Batch  (None, 4, 4, 256)   1024        ['backbone.dark3.1.cv3.conv[0][0]
+ Normalization)                                                  ']                               
+                                                                                                  
+ si_lu_1972 (SiLU)              (None, 4, 4, 256)    0           ['backbone.dark3.1.cv3.bn[0][0]']
+                                                                                                  
+ zero_padding2d_180 (ZeroPaddin  (None, 5, 5, 256)   0           ['si_lu_1972[0][0]']             
+ g2D)                                                                                             
+                                                                                                  
+ backbone.dark4.0.conv (Conv2D)  (None, 2, 2, 512)   1179648     ['zero_padding2d_180[0][0]']     
+                                                                                                  
+ backbone.dark4.0.bn (BatchNorm  (None, 2, 2, 512)   2048        ['backbone.dark4.0.conv[0][0]']  
+ alization)                                                                                       
+                                                                                                  
+ si_lu_1973 (SiLU)              (None, 2, 2, 512)    0           ['backbone.dark4.0.bn[0][0]']    
+                                                                                                  
+ backbone.dark4.1.cv1.conv (Con  (None, 2, 2, 256)   131072      ['si_lu_1973[0][0]']             
+ v2D)                                                                                             
+                                                                                                  
+ backbone.dark4.1.cv1.bn (Batch  (None, 2, 2, 256)   1024        ['backbone.dark4.1.cv1.conv[0][0]
+ Normalization)                                                  ']                               
+                                                                                                  
+ si_lu_1974 (SiLU)              (None, 2, 2, 256)    0           ['backbone.dark4.1.cv1.bn[0][0]']
+                                                                                                  
+ backbone.dark4.1.m.0.cv1.conv   (None, 2, 2, 256)   65536       ['si_lu_1974[0][0]']             
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.dark4.1.m.0.cv1.bn (B  (None, 2, 2, 256)   1024        ['backbone.dark4.1.m.0.cv1.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ si_lu_1976 (SiLU)              (None, 2, 2, 256)    0           ['backbone.dark4.1.m.0.cv1.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ backbone.dark4.1.m.0.cv2.conv   (None, 2, 2, 256)   589824      ['si_lu_1976[0][0]']             
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.dark4.1.m.0.cv2.bn (B  (None, 2, 2, 256)   1024        ['backbone.dark4.1.m.0.cv2.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ si_lu_1977 (SiLU)              (None, 2, 2, 256)    0           ['backbone.dark4.1.m.0.cv2.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ add_570 (Add)                  (None, 2, 2, 256)    0           ['si_lu_1974[0][0]',             
+                                                                  'si_lu_1977[0][0]']             
+                                                                                                  
+ backbone.dark4.1.m.1.cv1.conv   (None, 2, 2, 256)   65536       ['add_570[0][0]']                
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.dark4.1.m.1.cv1.bn (B  (None, 2, 2, 256)   1024        ['backbone.dark4.1.m.1.cv1.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ si_lu_1978 (SiLU)              (None, 2, 2, 256)    0           ['backbone.dark4.1.m.1.cv1.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ backbone.dark4.1.m.1.cv2.conv   (None, 2, 2, 256)   589824      ['si_lu_1978[0][0]']             
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.dark4.1.m.1.cv2.bn (B  (None, 2, 2, 256)   1024        ['backbone.dark4.1.m.1.cv2.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ si_lu_1979 (SiLU)              (None, 2, 2, 256)    0           ['backbone.dark4.1.m.1.cv2.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ add_571 (Add)                  (None, 2, 2, 256)    0           ['add_570[0][0]',                
+                                                                  'si_lu_1979[0][0]']             
+                                                                                                  
+ backbone.dark4.1.m.2.cv1.conv   (None, 2, 2, 256)   65536       ['add_571[0][0]']                
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.dark4.1.m.2.cv1.bn (B  (None, 2, 2, 256)   1024        ['backbone.dark4.1.m.2.cv1.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ si_lu_1980 (SiLU)              (None, 2, 2, 256)    0           ['backbone.dark4.1.m.2.cv1.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ backbone.dark4.1.m.2.cv2.conv   (None, 2, 2, 256)   589824      ['si_lu_1980[0][0]']             
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.dark4.1.m.2.cv2.bn (B  (None, 2, 2, 256)   1024        ['backbone.dark4.1.m.2.cv2.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ si_lu_1981 (SiLU)              (None, 2, 2, 256)    0           ['backbone.dark4.1.m.2.cv2.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ add_572 (Add)                  (None, 2, 2, 256)    0           ['add_571[0][0]',                
+                                                                  'si_lu_1981[0][0]']             
+                                                                                                  
+ backbone.dark4.1.m.3.cv1.conv   (None, 2, 2, 256)   65536       ['add_572[0][0]']                
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.dark4.1.m.3.cv1.bn (B  (None, 2, 2, 256)   1024        ['backbone.dark4.1.m.3.cv1.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ si_lu_1982 (SiLU)              (None, 2, 2, 256)    0           ['backbone.dark4.1.m.3.cv1.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ backbone.dark4.1.m.3.cv2.conv   (None, 2, 2, 256)   589824      ['si_lu_1982[0][0]']             
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.dark4.1.m.3.cv2.bn (B  (None, 2, 2, 256)   1024        ['backbone.dark4.1.m.3.cv2.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ si_lu_1983 (SiLU)              (None, 2, 2, 256)    0           ['backbone.dark4.1.m.3.cv2.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ add_573 (Add)                  (None, 2, 2, 256)    0           ['add_572[0][0]',                
+                                                                  'si_lu_1983[0][0]']             
+                                                                                                  
+ backbone.dark4.1.m.4.cv1.conv   (None, 2, 2, 256)   65536       ['add_573[0][0]']                
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.dark4.1.m.4.cv1.bn (B  (None, 2, 2, 256)   1024        ['backbone.dark4.1.m.4.cv1.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ si_lu_1984 (SiLU)              (None, 2, 2, 256)    0           ['backbone.dark4.1.m.4.cv1.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ backbone.dark4.1.m.4.cv2.conv   (None, 2, 2, 256)   589824      ['si_lu_1984[0][0]']             
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.dark4.1.m.4.cv2.bn (B  (None, 2, 2, 256)   1024        ['backbone.dark4.1.m.4.cv2.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ si_lu_1985 (SiLU)              (None, 2, 2, 256)    0           ['backbone.dark4.1.m.4.cv2.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ add_574 (Add)                  (None, 2, 2, 256)    0           ['add_573[0][0]',                
+                                                                  'si_lu_1985[0][0]']             
+                                                                                                  
+ backbone.dark4.1.m.5.cv1.conv   (None, 2, 2, 256)   65536       ['add_574[0][0]']                
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.dark4.1.m.5.cv1.bn (B  (None, 2, 2, 256)   1024        ['backbone.dark4.1.m.5.cv1.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ si_lu_1986 (SiLU)              (None, 2, 2, 256)    0           ['backbone.dark4.1.m.5.cv1.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ backbone.dark4.1.m.5.cv2.conv   (None, 2, 2, 256)   589824      ['si_lu_1986[0][0]']             
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.dark4.1.m.5.cv2.bn (B  (None, 2, 2, 256)   1024        ['backbone.dark4.1.m.5.cv2.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ si_lu_1987 (SiLU)              (None, 2, 2, 256)    0           ['backbone.dark4.1.m.5.cv2.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ add_575 (Add)                  (None, 2, 2, 256)    0           ['add_574[0][0]',                
+                                                                  'si_lu_1987[0][0]']             
+                                                                                                  
+ backbone.dark4.1.m.6.cv1.conv   (None, 2, 2, 256)   65536       ['add_575[0][0]']                
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.dark4.1.m.6.cv1.bn (B  (None, 2, 2, 256)   1024        ['backbone.dark4.1.m.6.cv1.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ si_lu_1988 (SiLU)              (None, 2, 2, 256)    0           ['backbone.dark4.1.m.6.cv1.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ backbone.dark4.1.m.6.cv2.conv   (None, 2, 2, 256)   589824      ['si_lu_1988[0][0]']             
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.dark4.1.m.6.cv2.bn (B  (None, 2, 2, 256)   1024        ['backbone.dark4.1.m.6.cv2.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ si_lu_1989 (SiLU)              (None, 2, 2, 256)    0           ['backbone.dark4.1.m.6.cv2.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ add_576 (Add)                  (None, 2, 2, 256)    0           ['add_575[0][0]',                
+                                                                  'si_lu_1989[0][0]']             
+                                                                                                  
+ backbone.dark4.1.m.7.cv1.conv   (None, 2, 2, 256)   65536       ['add_576[0][0]']                
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.dark4.1.m.7.cv1.bn (B  (None, 2, 2, 256)   1024        ['backbone.dark4.1.m.7.cv1.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ si_lu_1990 (SiLU)              (None, 2, 2, 256)    0           ['backbone.dark4.1.m.7.cv1.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ backbone.dark4.1.m.7.cv2.conv   (None, 2, 2, 256)   589824      ['si_lu_1990[0][0]']             
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.dark4.1.m.7.cv2.bn (B  (None, 2, 2, 256)   1024        ['backbone.dark4.1.m.7.cv2.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ si_lu_1991 (SiLU)              (None, 2, 2, 256)    0           ['backbone.dark4.1.m.7.cv2.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ add_577 (Add)                  (None, 2, 2, 256)    0           ['add_576[0][0]',                
+                                                                  'si_lu_1991[0][0]']             
+                                                                                                  
+ backbone.dark4.1.m.8.cv1.conv   (None, 2, 2, 256)   65536       ['add_577[0][0]']                
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.dark4.1.m.8.cv1.bn (B  (None, 2, 2, 256)   1024        ['backbone.dark4.1.m.8.cv1.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ si_lu_1992 (SiLU)              (None, 2, 2, 256)    0           ['backbone.dark4.1.m.8.cv1.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ backbone.dark4.1.m.8.cv2.conv   (None, 2, 2, 256)   589824      ['si_lu_1992[0][0]']             
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.dark4.1.m.8.cv2.bn (B  (None, 2, 2, 256)   1024        ['backbone.dark4.1.m.8.cv2.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ backbone.dark4.1.cv2.conv (Con  (None, 2, 2, 256)   131072      ['si_lu_1973[0][0]']             
+ v2D)                                                                                             
+                                                                                                  
+ si_lu_1993 (SiLU)              (None, 2, 2, 256)    0           ['backbone.dark4.1.m.8.cv2.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ backbone.dark4.1.cv2.bn (Batch  (None, 2, 2, 256)   1024        ['backbone.dark4.1.cv2.conv[0][0]
+ Normalization)                                                  ']                               
+                                                                                                  
+ add_578 (Add)                  (None, 2, 2, 256)    0           ['add_577[0][0]',                
+                                                                  'si_lu_1993[0][0]']             
+                                                                                                  
+ si_lu_1975 (SiLU)              (None, 2, 2, 256)    0           ['backbone.dark4.1.cv2.bn[0][0]']
+                                                                                                  
+ concatenate_374 (Concatenate)  (None, 2, 2, 512)    0           ['add_578[0][0]',                
+                                                                  'si_lu_1975[0][0]']             
+                                                                                                  
+ backbone.dark4.1.cv3.conv (Con  (None, 2, 2, 512)   262144      ['concatenate_374[0][0]']        
+ v2D)                                                                                             
+                                                                                                  
+ backbone.dark4.1.cv3.bn (Batch  (None, 2, 2, 512)   2048        ['backbone.dark4.1.cv3.conv[0][0]
+ Normalization)                                                  ']                               
+                                                                                                  
+ si_lu_1994 (SiLU)              (None, 2, 2, 512)    0           ['backbone.dark4.1.cv3.bn[0][0]']
+                                                                                                  
+ zero_padding2d_181 (ZeroPaddin  (None, 3, 3, 512)   0           ['si_lu_1994[0][0]']             
+ g2D)                                                                                             
+                                                                                                  
+ backbone.dark5.0.conv (Conv2D)  (None, 1, 1, 1024)  4718592     ['zero_padding2d_181[0][0]']     
+                                                                                                  
+ backbone.dark5.0.bn (BatchNorm  (None, 1, 1, 1024)  4096        ['backbone.dark5.0.conv[0][0]']  
+ alization)                                                                                       
+                                                                                                  
+ si_lu_1995 (SiLU)              (None, 1, 1, 1024)   0           ['backbone.dark5.0.bn[0][0]']    
+                                                                                                  
+ backbone.dark5.1.cv1.conv (Con  (None, 1, 1, 512)   524288      ['si_lu_1995[0][0]']             
+ v2D)                                                                                             
+                                                                                                  
+ backbone.dark5.1.cv1.bn (Batch  (None, 1, 1, 512)   2048        ['backbone.dark5.1.cv1.conv[0][0]
+ Normalization)                                                  ']                               
+                                                                                                  
+ si_lu_1996 (SiLU)              (None, 1, 1, 512)    0           ['backbone.dark5.1.cv1.bn[0][0]']
+                                                                                                  
+ max_pooling2d_134 (MaxPooling2  (None, 1, 1, 512)   0           ['si_lu_1996[0][0]']             
+ D)                                                                                               
+                                                                                                  
+ max_pooling2d_135 (MaxPooling2  (None, 1, 1, 512)   0           ['si_lu_1996[0][0]']             
+ D)                                                                                               
+                                                                                                  
+ max_pooling2d_136 (MaxPooling2  (None, 1, 1, 512)   0           ['si_lu_1996[0][0]']             
+ D)                                                                                               
+                                                                                                  
+ concatenate_375 (Concatenate)  (None, 1, 1, 2048)   0           ['si_lu_1996[0][0]',             
+                                                                  'max_pooling2d_134[0][0]',      
+                                                                  'max_pooling2d_135[0][0]',      
+                                                                  'max_pooling2d_136[0][0]']      
+                                                                                                  
+ backbone.dark5.1.cv2.conv (Con  (None, 1, 1, 1024)  2097152     ['concatenate_375[0][0]']        
+ v2D)                                                                                             
+                                                                                                  
+ backbone.dark5.1.cv2.bn (Batch  (None, 1, 1, 1024)  4096        ['backbone.dark5.1.cv2.conv[0][0]
+ Normalization)                                                  ']                               
+                                                                                                  
+ si_lu_1997 (SiLU)              (None, 1, 1, 1024)   0           ['backbone.dark5.1.cv2.bn[0][0]']
+                                                                                                  
+ backbone.dark5.2.cv1.conv (Con  (None, 1, 1, 512)   524288      ['si_lu_1997[0][0]']             
+ v2D)                                                                                             
+                                                                                                  
+ backbone.dark5.2.cv1.bn (Batch  (None, 1, 1, 512)   2048        ['backbone.dark5.2.cv1.conv[0][0]
+ Normalization)                                                  ']                               
+                                                                                                  
+ si_lu_1998 (SiLU)              (None, 1, 1, 512)    0           ['backbone.dark5.2.cv1.bn[0][0]']
+                                                                                                  
+ backbone.dark5.2.m.0.cv1.conv   (None, 1, 1, 512)   262144      ['si_lu_1998[0][0]']             
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.dark5.2.m.0.cv1.bn (B  (None, 1, 1, 512)   2048        ['backbone.dark5.2.m.0.cv1.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ si_lu_2000 (SiLU)              (None, 1, 1, 512)    0           ['backbone.dark5.2.m.0.cv1.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ backbone.dark5.2.m.0.cv2.conv   (None, 1, 1, 512)   2359296     ['si_lu_2000[0][0]']             
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.dark5.2.m.0.cv2.bn (B  (None, 1, 1, 512)   2048        ['backbone.dark5.2.m.0.cv2.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ si_lu_2001 (SiLU)              (None, 1, 1, 512)    0           ['backbone.dark5.2.m.0.cv2.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ backbone.dark5.2.m.1.cv1.conv   (None, 1, 1, 512)   262144      ['si_lu_2001[0][0]']             
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.dark5.2.m.1.cv1.bn (B  (None, 1, 1, 512)   2048        ['backbone.dark5.2.m.1.cv1.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ si_lu_2002 (SiLU)              (None, 1, 1, 512)    0           ['backbone.dark5.2.m.1.cv1.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ backbone.dark5.2.m.1.cv2.conv   (None, 1, 1, 512)   2359296     ['si_lu_2002[0][0]']             
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.dark5.2.m.1.cv2.bn (B  (None, 1, 1, 512)   2048        ['backbone.dark5.2.m.1.cv2.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ si_lu_2003 (SiLU)              (None, 1, 1, 512)    0           ['backbone.dark5.2.m.1.cv2.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ backbone.dark5.2.m.2.cv1.conv   (None, 1, 1, 512)   262144      ['si_lu_2003[0][0]']             
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.dark5.2.m.2.cv1.bn (B  (None, 1, 1, 512)   2048        ['backbone.dark5.2.m.2.cv1.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ si_lu_2004 (SiLU)              (None, 1, 1, 512)    0           ['backbone.dark5.2.m.2.cv1.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ backbone.dark5.2.m.2.cv2.conv   (None, 1, 1, 512)   2359296     ['si_lu_2004[0][0]']             
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.dark5.2.cv2.conv (Con  (None, 1, 1, 512)   524288      ['si_lu_1997[0][0]']             
+ v2D)                                                                                             
+                                                                                                  
+ backbone.dark5.2.m.2.cv2.bn (B  (None, 1, 1, 512)   2048        ['backbone.dark5.2.m.2.cv2.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ backbone.dark5.2.cv2.bn (Batch  (None, 1, 1, 512)   2048        ['backbone.dark5.2.cv2.conv[0][0]
+ Normalization)                                                  ']                               
+                                                                                                  
+ si_lu_2005 (SiLU)              (None, 1, 1, 512)    0           ['backbone.dark5.2.m.2.cv2.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ si_lu_1999 (SiLU)              (None, 1, 1, 512)    0           ['backbone.dark5.2.cv2.bn[0][0]']
+                                                                                                  
+ concatenate_376 (Concatenate)  (None, 1, 1, 1024)   0           ['si_lu_2005[0][0]',             
+                                                                  'si_lu_1999[0][0]']             
+                                                                                                  
+ backbone.dark5.2.cv3.conv (Con  (None, 1, 1, 1024)  1048576     ['concatenate_376[0][0]']        
+ v2D)                                                                                             
+                                                                                                  
+ backbone.dark5.2.cv3.bn (Batch  (None, 1, 1, 1024)  4096        ['backbone.dark5.2.cv3.conv[0][0]
+ Normalization)                                                  ']                               
+                                                                                                  
+ si_lu_2006 (SiLU)              (None, 1, 1, 1024)   0           ['backbone.dark5.2.cv3.bn[0][0]']
+                                                                                                  
+ backbone.lateral_conv0.conv (C  (None, 1, 1, 384)   393216      ['si_lu_2006[0][0]']             
+ onv2D)                                                                                           
+                                                                                                  
+ backbone.lateral_conv0.bn (Bat  (None, 1, 1, 384)   1536        ['backbone.lateral_conv0.conv[0][
+ chNormalization)                                                0]']                             
+                                                                                                  
+ si_lu_2007 (SiLU)              (None, 1, 1, 384)    0           ['backbone.lateral_conv0.bn[0][0]
+                                                                 ']                               
+                                                                                                  
+ up_sampling2d_60 (UpSampling2D  (None, 2, 2, 384)   0           ['si_lu_2007[0][0]']             
+ )                                                                                                
+                                                                                                  
+ concatenate_377 (Concatenate)  (None, 2, 2, 896)    0           ['up_sampling2d_60[0][0]',       
+                                                                  'si_lu_1994[0][0]']             
+                                                                                                  
+ backbone.C3_p4.conv1.conv (Con  (None, 2, 2, 192)   172032      ['concatenate_377[0][0]']        
+ v2D)                                                                                             
+                                                                                                  
+ backbone.C3_p4.conv1.bn (Batch  (None, 2, 2, 192)   768         ['backbone.C3_p4.conv1.conv[0][0]
+ Normalization)                                                  ']                               
+                                                                                                  
+ si_lu_2008 (SiLU)              (None, 2, 2, 192)    0           ['backbone.C3_p4.conv1.bn[0][0]']
+                                                                                                  
+ backbone.C3_p4.m.0.conv1.conv   (None, 2, 2, 192)   36864       ['si_lu_2008[0][0]']             
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.C3_p4.m.0.conv1.bn (B  (None, 2, 2, 192)   768         ['backbone.C3_p4.m.0.conv1.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ si_lu_2010 (SiLU)              (None, 2, 2, 192)    0           ['backbone.C3_p4.m.0.conv1.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ backbone.C3_p4.m.0.conv2.conv   (None, 2, 2, 192)   331776      ['si_lu_2010[0][0]']             
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.C3_p4.m.0.conv2.bn (B  (None, 2, 2, 192)   768         ['backbone.C3_p4.m.0.conv2.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ si_lu_2011 (SiLU)              (None, 2, 2, 192)    0           ['backbone.C3_p4.m.0.conv2.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ backbone.C3_p4.m.1.conv1.conv   (None, 2, 2, 192)   36864       ['si_lu_2011[0][0]']             
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.C3_p4.m.1.conv1.bn (B  (None, 2, 2, 192)   768         ['backbone.C3_p4.m.1.conv1.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ si_lu_2012 (SiLU)              (None, 2, 2, 192)    0           ['backbone.C3_p4.m.1.conv1.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ backbone.C3_p4.m.1.conv2.conv   (None, 2, 2, 192)   331776      ['si_lu_2012[0][0]']             
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.C3_p4.conv2.conv (Con  (None, 2, 2, 192)   172032      ['concatenate_377[0][0]']        
+ v2D)                                                                                             
+                                                                                                  
+ backbone.C3_p4.m.1.conv2.bn (B  (None, 2, 2, 192)   768         ['backbone.C3_p4.m.1.conv2.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ backbone.C3_p4.conv2.bn (Batch  (None, 2, 2, 192)   768         ['backbone.C3_p4.conv2.conv[0][0]
+ Normalization)                                                  ']                               
+                                                                                                  
+ si_lu_2013 (SiLU)              (None, 2, 2, 192)    0           ['backbone.C3_p4.m.1.conv2.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ si_lu_2009 (SiLU)              (None, 2, 2, 192)    0           ['backbone.C3_p4.conv2.bn[0][0]']
+                                                                                                  
+ concatenate_378 (Concatenate)  (None, 2, 2, 384)    0           ['si_lu_2013[0][0]',             
+                                                                  'si_lu_2009[0][0]']             
+                                                                                                  
+ backbone.C3_p4.conv3.conv (Con  (None, 2, 2, 384)   147456      ['concatenate_378[0][0]']        
+ v2D)                                                                                             
+                                                                                                  
+ backbone.C3_p4.conv3.bn (Batch  (None, 2, 2, 384)   1536        ['backbone.C3_p4.conv3.conv[0][0]
+ Normalization)                                                  ']                               
+                                                                                                  
+ si_lu_2014 (SiLU)              (None, 2, 2, 384)    0           ['backbone.C3_p4.conv3.bn[0][0]']
+                                                                                                  
+ backbone.reduce_conv1.conv (Co  (None, 2, 2, 192)   73728       ['si_lu_2014[0][0]']             
+ nv2D)                                                                                            
+                                                                                                  
+ backbone.reduce_conv1.bn (Batc  (None, 2, 2, 192)   768         ['backbone.reduce_conv1.conv[0][0
+ hNormalization)                                                 ]']                              
+                                                                                                  
+ si_lu_2015 (SiLU)              (None, 2, 2, 192)    0           ['backbone.reduce_conv1.bn[0][0]'
+                                                                 ]                                
+                                                                                                  
+ up_sampling2d_61 (UpSampling2D  (None, 4, 4, 192)   0           ['si_lu_2015[0][0]']             
+ )                                                                                                
+                                                                                                  
+ concatenate_379 (Concatenate)  (None, 4, 4, 448)    0           ['up_sampling2d_61[0][0]',       
+                                                                  'si_lu_1972[0][0]']             
+                                                                                                  
+ backbone.C3_p3.conv1.conv (Con  (None, 4, 4, 96)    43008       ['concatenate_379[0][0]']        
+ v2D)                                                                                             
+                                                                                                  
+ backbone.C3_p3.conv1.bn (Batch  (None, 4, 4, 96)    384         ['backbone.C3_p3.conv1.conv[0][0]
+ Normalization)                                                  ']                               
+                                                                                                  
+ si_lu_2016 (SiLU)              (None, 4, 4, 96)     0           ['backbone.C3_p3.conv1.bn[0][0]']
+                                                                                                  
+ backbone.C3_p3.m.0.conv1.conv   (None, 4, 4, 96)    9216        ['si_lu_2016[0][0]']             
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.C3_p3.m.0.conv1.bn (B  (None, 4, 4, 96)    384         ['backbone.C3_p3.m.0.conv1.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ si_lu_2018 (SiLU)              (None, 4, 4, 96)     0           ['backbone.C3_p3.m.0.conv1.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ backbone.C3_p3.m.0.conv2.conv   (None, 4, 4, 96)    82944       ['si_lu_2018[0][0]']             
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.C3_p3.m.0.conv2.bn (B  (None, 4, 4, 96)    384         ['backbone.C3_p3.m.0.conv2.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ si_lu_2019 (SiLU)              (None, 4, 4, 96)     0           ['backbone.C3_p3.m.0.conv2.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ backbone.C3_p3.m.1.conv1.conv   (None, 4, 4, 96)    9216        ['si_lu_2019[0][0]']             
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.C3_p3.m.1.conv1.bn (B  (None, 4, 4, 96)    384         ['backbone.C3_p3.m.1.conv1.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ si_lu_2020 (SiLU)              (None, 4, 4, 96)     0           ['backbone.C3_p3.m.1.conv1.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ backbone.C3_p3.m.1.conv2.conv   (None, 4, 4, 96)    82944       ['si_lu_2020[0][0]']             
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.C3_p3.conv2.conv (Con  (None, 4, 4, 96)    43008       ['concatenate_379[0][0]']        
+ v2D)                                                                                             
+                                                                                                  
+ backbone.C3_p3.m.1.conv2.bn (B  (None, 4, 4, 96)    384         ['backbone.C3_p3.m.1.conv2.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ backbone.C3_p3.conv2.bn (Batch  (None, 4, 4, 96)    384         ['backbone.C3_p3.conv2.conv[0][0]
+ Normalization)                                                  ']                               
+                                                                                                  
+ si_lu_2021 (SiLU)              (None, 4, 4, 96)     0           ['backbone.C3_p3.m.1.conv2.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ si_lu_2017 (SiLU)              (None, 4, 4, 96)     0           ['backbone.C3_p3.conv2.bn[0][0]']
+                                                                                                  
+ concatenate_380 (Concatenate)  (None, 4, 4, 192)    0           ['si_lu_2021[0][0]',             
+                                                                  'si_lu_2017[0][0]']             
+                                                                                                  
+ backbone.C3_p3.conv3.conv (Con  (None, 4, 4, 192)   36864       ['concatenate_380[0][0]']        
+ v2D)                                                                                             
+                                                                                                  
+ backbone.C3_p3.conv3.bn (Batch  (None, 4, 4, 192)   768         ['backbone.C3_p3.conv3.conv[0][0]
+ Normalization)                                                  ']                               
+                                                                                                  
+ si_lu_2022 (SiLU)              (None, 4, 4, 192)    0           ['backbone.C3_p3.conv3.bn[0][0]']
+                                                                                                  
+ zero_padding2d_182 (ZeroPaddin  (None, 5, 5, 192)   0           ['si_lu_2022[0][0]']             
+ g2D)                                                                                             
+                                                                                                  
+ backbone.bu_conv2.conv (Conv2D  (None, 2, 2, 192)   331776      ['zero_padding2d_182[0][0]']     
+ )                                                                                                
+                                                                                                  
+ backbone.bu_conv2.bn (BatchNor  (None, 2, 2, 192)   768         ['backbone.bu_conv2.conv[0][0]'] 
+ malization)                                                                                      
+                                                                                                  
+ si_lu_2023 (SiLU)              (None, 2, 2, 192)    0           ['backbone.bu_conv2.bn[0][0]']   
+                                                                                                  
+ concatenate_381 (Concatenate)  (None, 2, 2, 384)    0           ['si_lu_2023[0][0]',             
+                                                                  'si_lu_2015[0][0]']             
+                                                                                                  
+ backbone.C3_n3.conv1.conv (Con  (None, 2, 2, 192)   73728       ['concatenate_381[0][0]']        
+ v2D)                                                                                             
+                                                                                                  
+ backbone.C3_n3.conv1.bn (Batch  (None, 2, 2, 192)   768         ['backbone.C3_n3.conv1.conv[0][0]
+ Normalization)                                                  ']                               
+                                                                                                  
+ si_lu_2024 (SiLU)              (None, 2, 2, 192)    0           ['backbone.C3_n3.conv1.bn[0][0]']
+                                                                                                  
+ backbone.C3_n3.m.0.conv1.conv   (None, 2, 2, 192)   36864       ['si_lu_2024[0][0]']             
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.C3_n3.m.0.conv1.bn (B  (None, 2, 2, 192)   768         ['backbone.C3_n3.m.0.conv1.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ si_lu_2026 (SiLU)              (None, 2, 2, 192)    0           ['backbone.C3_n3.m.0.conv1.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ backbone.C3_n3.m.0.conv2.conv   (None, 2, 2, 192)   331776      ['si_lu_2026[0][0]']             
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.C3_n3.m.0.conv2.bn (B  (None, 2, 2, 192)   768         ['backbone.C3_n3.m.0.conv2.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ si_lu_2027 (SiLU)              (None, 2, 2, 192)    0           ['backbone.C3_n3.m.0.conv2.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ backbone.C3_n3.m.1.conv1.conv   (None, 2, 2, 192)   36864       ['si_lu_2027[0][0]']             
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.C3_n3.m.1.conv1.bn (B  (None, 2, 2, 192)   768         ['backbone.C3_n3.m.1.conv1.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ si_lu_2028 (SiLU)              (None, 2, 2, 192)    0           ['backbone.C3_n3.m.1.conv1.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ backbone.C3_n3.m.1.conv2.conv   (None, 2, 2, 192)   331776      ['si_lu_2028[0][0]']             
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.C3_n3.conv2.conv (Con  (None, 2, 2, 192)   73728       ['concatenate_381[0][0]']        
+ v2D)                                                                                             
+                                                                                                  
+ backbone.C3_n3.m.1.conv2.bn (B  (None, 2, 2, 192)   768         ['backbone.C3_n3.m.1.conv2.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ backbone.C3_n3.conv2.bn (Batch  (None, 2, 2, 192)   768         ['backbone.C3_n3.conv2.conv[0][0]
+ Normalization)                                                  ']                               
+                                                                                                  
+ si_lu_2029 (SiLU)              (None, 2, 2, 192)    0           ['backbone.C3_n3.m.1.conv2.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ si_lu_2025 (SiLU)              (None, 2, 2, 192)    0           ['backbone.C3_n3.conv2.bn[0][0]']
+                                                                                                  
+ concatenate_382 (Concatenate)  (None, 2, 2, 384)    0           ['si_lu_2029[0][0]',             
+                                                                  'si_lu_2025[0][0]']             
+                                                                                                  
+ backbone.C3_n3.conv3.conv (Con  (None, 2, 2, 384)   147456      ['concatenate_382[0][0]']        
+ v2D)                                                                                             
+                                                                                                  
+ backbone.C3_n3.conv3.bn (Batch  (None, 2, 2, 384)   1536        ['backbone.C3_n3.conv3.conv[0][0]
+ Normalization)                                                  ']                               
+                                                                                                  
+ si_lu_2030 (SiLU)              (None, 2, 2, 384)    0           ['backbone.C3_n3.conv3.bn[0][0]']
+                                                                                                  
+ zero_padding2d_183 (ZeroPaddin  (None, 3, 3, 384)   0           ['si_lu_2030[0][0]']             
+ g2D)                                                                                             
+                                                                                                  
+ backbone.bu_conv1.conv (Conv2D  (None, 1, 1, 384)   1327104     ['zero_padding2d_183[0][0]']     
+ )                                                                                                
+                                                                                                  
+ backbone.bu_conv1.bn (BatchNor  (None, 1, 1, 384)   1536        ['backbone.bu_conv1.conv[0][0]'] 
+ malization)                                                                                      
+                                                                                                  
+ si_lu_2031 (SiLU)              (None, 1, 1, 384)    0           ['backbone.bu_conv1.bn[0][0]']   
+                                                                                                  
+ concatenate_383 (Concatenate)  (None, 1, 1, 768)    0           ['si_lu_2031[0][0]',             
+                                                                  'si_lu_2007[0][0]']             
+                                                                                                  
+ backbone.C3_n4.conv1.conv (Con  (None, 1, 1, 384)   294912      ['concatenate_383[0][0]']        
+ v2D)                                                                                             
+                                                                                                  
+ backbone.C3_n4.conv1.bn (Batch  (None, 1, 1, 384)   1536        ['backbone.C3_n4.conv1.conv[0][0]
+ Normalization)                                                  ']                               
+                                                                                                  
+ si_lu_2032 (SiLU)              (None, 1, 1, 384)    0           ['backbone.C3_n4.conv1.bn[0][0]']
+                                                                                                  
+ backbone.C3_n4.m.0.conv1.conv   (None, 1, 1, 384)   147456      ['si_lu_2032[0][0]']             
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.C3_n4.m.0.conv1.bn (B  (None, 1, 1, 384)   1536        ['backbone.C3_n4.m.0.conv1.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ si_lu_2034 (SiLU)              (None, 1, 1, 384)    0           ['backbone.C3_n4.m.0.conv1.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ backbone.C3_n4.m.0.conv2.conv   (None, 1, 1, 384)   1327104     ['si_lu_2034[0][0]']             
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.C3_n4.m.0.conv2.bn (B  (None, 1, 1, 384)   1536        ['backbone.C3_n4.m.0.conv2.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ si_lu_2035 (SiLU)              (None, 1, 1, 384)    0           ['backbone.C3_n4.m.0.conv2.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ backbone.C3_n4.m.1.conv1.conv   (None, 1, 1, 384)   147456      ['si_lu_2035[0][0]']             
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.C3_n4.m.1.conv1.bn (B  (None, 1, 1, 384)   1536        ['backbone.C3_n4.m.1.conv1.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ si_lu_2036 (SiLU)              (None, 1, 1, 384)    0           ['backbone.C3_n4.m.1.conv1.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ backbone.C3_n4.m.1.conv2.conv   (None, 1, 1, 384)   1327104     ['si_lu_2036[0][0]']             
+ (Conv2D)                                                                                         
+                                                                                                  
+ backbone.C3_n4.conv2.conv (Con  (None, 1, 1, 384)   294912      ['concatenate_383[0][0]']        
+ v2D)                                                                                             
+                                                                                                  
+ backbone.C3_n4.m.1.conv2.bn (B  (None, 1, 1, 384)   1536        ['backbone.C3_n4.m.1.conv2.conv[0
+ atchNormalization)                                              ][0]']                           
+                                                                                                  
+ backbone.C3_n4.conv2.bn (Batch  (None, 1, 1, 384)   1536        ['backbone.C3_n4.conv2.conv[0][0]
+ Normalization)                                                  ']                               
+                                                                                                  
+ si_lu_2037 (SiLU)              (None, 1, 1, 384)    0           ['backbone.C3_n4.m.1.conv2.bn[0][
+                                                                 0]']                             
+                                                                                                  
+ si_lu_2033 (SiLU)              (None, 1, 1, 384)    0           ['backbone.C3_n4.conv2.bn[0][0]']
+                                                                                                  
+ concatenate_384 (Concatenate)  (None, 1, 1, 768)    0           ['si_lu_2037[0][0]',             
+                                                                  'si_lu_2033[0][0]']             
+                                                                                                  
+ backbone.C3_n4.conv3.conv (Con  (None, 1, 1, 768)   589824      ['concatenate_384[0][0]']        
+ v2D)                                                                                             
+                                                                                                  
+ backbone.C3_n4.conv3.bn (Batch  (None, 1, 1, 768)   3072        ['backbone.C3_n4.conv3.conv[0][0]
+ Normalization)                                                  ']                               
+                                                                                                  
+ si_lu_2038 (SiLU)              (None, 1, 1, 768)    0           ['backbone.C3_n4.conv3.bn[0][0]']
+                                                                                                  
+ head.stems.0.conv (Conv2D)     (None, 4, 4, 192)    36864       ['si_lu_2022[0][0]']             
+                                                                                                  
+ head.stems.1.conv (Conv2D)     (None, 2, 2, 192)    73728       ['si_lu_2030[0][0]']             
+                                                                                                  
+ head.stems.2.conv (Conv2D)     (None, 1, 1, 192)    147456      ['si_lu_2038[0][0]']             
+                                                                                                  
+ head.stems.0.bn (BatchNormaliz  (None, 4, 4, 192)   768         ['head.stems.0.conv[0][0]']      
+ ation)                                                                                           
+                                                                                                  
+ head.stems.1.bn (BatchNormaliz  (None, 2, 2, 192)   768         ['head.stems.1.conv[0][0]']      
+ ation)                                                                                           
+                                                                                                  
+ head.stems.2.bn (BatchNormaliz  (None, 1, 1, 192)   768         ['head.stems.2.conv[0][0]']      
+ ation)                                                                                           
+                                                                                                  
+ si_lu_2039 (SiLU)              (None, 4, 4, 192)    0           ['head.stems.0.bn[0][0]']        
+                                                                                                  
+ si_lu_2044 (SiLU)              (None, 2, 2, 192)    0           ['head.stems.1.bn[0][0]']        
+                                                                                                  
+ si_lu_2049 (SiLU)              (None, 1, 1, 192)    0           ['head.stems.2.bn[0][0]']        
+                                                                                                  
+ head.reg_convs.0.0.conv (Conv2  (None, 4, 4, 192)   331776      ['si_lu_2039[0][0]']             
+ D)                                                                                               
+                                                                                                  
+ head.cls_convs.0.0.conv (Conv2  (None, 4, 4, 192)   331776      ['si_lu_2039[0][0]']             
+ D)                                                                                               
+                                                                                                  
+ head.reg_convs.1.0.conv (Conv2  (None, 2, 2, 192)   331776      ['si_lu_2044[0][0]']             
+ D)                                                                                               
+                                                                                                  
+ head.cls_convs.1.0.conv (Conv2  (None, 2, 2, 192)   331776      ['si_lu_2044[0][0]']             
+ D)                                                                                               
+                                                                                                  
+ head.reg_convs.2.0.conv (Conv2  (None, 1, 1, 192)   331776      ['si_lu_2049[0][0]']             
+ D)                                                                                               
+                                                                                                  
+ head.cls_convs.2.0.conv (Conv2  (None, 1, 1, 192)   331776      ['si_lu_2049[0][0]']             
+ D)                                                                                               
+                                                                                                  
+ head.reg_convs.0.0.bn (BatchNo  (None, 4, 4, 192)   768         ['head.reg_convs.0.0.conv[0][0]']
+ rmalization)                                                                                     
+                                                                                                  
+ head.cls_convs.0.0.bn (BatchNo  (None, 4, 4, 192)   768         ['head.cls_convs.0.0.conv[0][0]']
+ rmalization)                                                                                     
+                                                                                                  
+ head.reg_convs.1.0.bn (BatchNo  (None, 2, 2, 192)   768         ['head.reg_convs.1.0.conv[0][0]']
+ rmalization)                                                                                     
+                                                                                                  
+ head.cls_convs.1.0.bn (BatchNo  (None, 2, 2, 192)   768         ['head.cls_convs.1.0.conv[0][0]']
+ rmalization)                                                                                     
+                                                                                                  
+ head.reg_convs.2.0.bn (BatchNo  (None, 1, 1, 192)   768         ['head.reg_convs.2.0.conv[0][0]']
+ rmalization)                                                                                     
+                                                                                                  
+ head.cls_convs.2.0.bn (BatchNo  (None, 1, 1, 192)   768         ['head.cls_convs.2.0.conv[0][0]']
+ rmalization)                                                                                     
+                                                                                                  
+ si_lu_2042 (SiLU)              (None, 4, 4, 192)    0           ['head.reg_convs.0.0.bn[0][0]']  
+                                                                                                  
+ si_lu_2040 (SiLU)              (None, 4, 4, 192)    0           ['head.cls_convs.0.0.bn[0][0]']  
+                                                                                                  
+ si_lu_2047 (SiLU)              (None, 2, 2, 192)    0           ['head.reg_convs.1.0.bn[0][0]']  
+                                                                                                  
+ si_lu_2045 (SiLU)              (None, 2, 2, 192)    0           ['head.cls_convs.1.0.bn[0][0]']  
+                                                                                                  
+ si_lu_2052 (SiLU)              (None, 1, 1, 192)    0           ['head.reg_convs.2.0.bn[0][0]']  
+                                                                                                  
+ si_lu_2050 (SiLU)              (None, 1, 1, 192)    0           ['head.cls_convs.2.0.bn[0][0]']  
+                                                                                                  
+ head.reg_convs.0.1.conv (Conv2  (None, 4, 4, 192)   331776      ['si_lu_2042[0][0]']             
+ D)                                                                                               
+                                                                                                  
+ head.cls_convs.0.1.conv (Conv2  (None, 4, 4, 192)   331776      ['si_lu_2040[0][0]']             
+ D)                                                                                               
+                                                                                                  
+ head.reg_convs.1.1.conv (Conv2  (None, 2, 2, 192)   331776      ['si_lu_2047[0][0]']             
+ D)                                                                                               
+                                                                                                  
+ head.cls_convs.1.1.conv (Conv2  (None, 2, 2, 192)   331776      ['si_lu_2045[0][0]']             
+ D)                                                                                               
+                                                                                                  
+ head.reg_convs.2.1.conv (Conv2  (None, 1, 1, 192)   331776      ['si_lu_2052[0][0]']             
+ D)                                                                                               
+                                                                                                  
+ head.cls_convs.2.1.conv (Conv2  (None, 1, 1, 192)   331776      ['si_lu_2050[0][0]']             
+ D)                                                                                               
+                                                                                                  
+ head.reg_convs.0.1.bn (BatchNo  (None, 4, 4, 192)   768         ['head.reg_convs.0.1.conv[0][0]']
+ rmalization)                                                                                     
+                                                                                                  
+ head.cls_convs.0.1.bn (BatchNo  (None, 4, 4, 192)   768         ['head.cls_convs.0.1.conv[0][0]']
+ rmalization)                                                                                     
+                                                                                                  
+ head.reg_convs.1.1.bn (BatchNo  (None, 2, 2, 192)   768         ['head.reg_convs.1.1.conv[0][0]']
+ rmalization)                                                                                     
+                                                                                                  
+ head.cls_convs.1.1.bn (BatchNo  (None, 2, 2, 192)   768         ['head.cls_convs.1.1.conv[0][0]']
+ rmalization)                                                                                     
+                                                                                                  
+ head.reg_convs.2.1.bn (BatchNo  (None, 1, 1, 192)   768         ['head.reg_convs.2.1.conv[0][0]']
+ rmalization)                                                                                     
+                                                                                                  
+ head.cls_convs.2.1.bn (BatchNo  (None, 1, 1, 192)   768         ['head.cls_convs.2.1.conv[0][0]']
+ rmalization)                                                                                     
+                                                                                                  
+ si_lu_2043 (SiLU)              (None, 4, 4, 192)    0           ['head.reg_convs.0.1.bn[0][0]']  
+                                                                                                  
+ si_lu_2041 (SiLU)              (None, 4, 4, 192)    0           ['head.cls_convs.0.1.bn[0][0]']  
+                                                                                                  
+ si_lu_2048 (SiLU)              (None, 2, 2, 192)    0           ['head.reg_convs.1.1.bn[0][0]']  
+                                                                                                  
+ si_lu_2046 (SiLU)              (None, 2, 2, 192)    0           ['head.cls_convs.1.1.bn[0][0]']  
+                                                                                                  
+ si_lu_2053 (SiLU)              (None, 1, 1, 192)    0           ['head.reg_convs.2.1.bn[0][0]']  
+                                                                                                  
+ si_lu_2051 (SiLU)              (None, 1, 1, 192)    0           ['head.cls_convs.2.1.bn[0][0]']  
+                                                                                                  
+ head.reg_preds.0 (Conv2D)      (None, 4, 4, 4)      772         ['si_lu_2043[0][0]']             
+                                                                                                  
+ head.obj_preds.0 (Conv2D)      (None, 4, 4, 1)      193         ['si_lu_2043[0][0]']             
+                                                                                                  
+ head.cls_preds.0 (Conv2D)      (None, 4, 4, 20)     3860        ['si_lu_2041[0][0]']             
+                                                                                                  
+ head.reg_preds.1 (Conv2D)      (None, 2, 2, 4)      772         ['si_lu_2048[0][0]']             
+                                                                                                  
+ head.obj_preds.1 (Conv2D)      (None, 2, 2, 1)      193         ['si_lu_2048[0][0]']             
+                                                                                                  
+ head.cls_preds.1 (Conv2D)      (None, 2, 2, 20)     3860        ['si_lu_2046[0][0]']             
+                                                                                                  
+ head.reg_preds.2 (Conv2D)      (None, 1, 1, 4)      772         ['si_lu_2053[0][0]']             
+                                                                                                  
+ head.obj_preds.2 (Conv2D)      (None, 1, 1, 1)      193         ['si_lu_2053[0][0]']             
+                                                                                                  
+ head.cls_preds.2 (Conv2D)      (None, 1, 1, 20)     3860        ['si_lu_2051[0][0]']             
+                                                                                                  
+ concatenate_385 (Concatenate)  (None, 4, 4, 25)     0           ['head.reg_preds.0[0][0]',       
+                                                                  'head.obj_preds.0[0][0]',       
+                                                                  'head.cls_preds.0[0][0]']       
+                                                                                                  
+ concatenate_386 (Concatenate)  (None, 2, 2, 25)     0           ['head.reg_preds.1[0][0]',       
+                                                                  'head.obj_preds.1[0][0]',       
+                                                                  'head.cls_preds.1[0][0]']       
+                                                                                                  
+ concatenate_387 (Concatenate)  (None, 1, 1, 25)     0           ['head.reg_preds.2[0][0]',       
+                                                                  'head.obj_preds.2[0][0]',       
+                                                                  'head.cls_preds.2[0][0]']       
+                                                                                                  
+==================================================================================================
+Total params: 40,231,819
+Trainable params: 40,174,475
+Non-trainable params: 57,344
+__________________________________________________________________________________________________
