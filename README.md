@@ -153,6 +153,8 @@ We are currently preparing a Docker environment in which it can run.
 
 This is an example of training with [autotrain](http://127.0.0.1:8001/autotrain/) , `One-Key Training` (a mechanism that allows machine learning from a browser without the need to adjust parameters).
 
+<img width="1373" alt="スクリーンショット 0005-05-08 13 57 59" src="https://user-images.githubusercontent.com/67861004/236739559-b9048bca-9bf1-4bfb-874b-0da206a7bfc9.png">
+
 The training conditions are in `train_onekey.py`
 ```py
 # 学習パラメタの設定
