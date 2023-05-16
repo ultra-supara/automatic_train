@@ -1,4 +1,4 @@
-# AI model automatic generation software for 20 dishs
+# AI model automatic generation software for
 
 <!-- <h1 align="center">
   <a href="https://github.com/dec0dOS/amazing-github-template">
@@ -61,29 +61,29 @@ Key features of **automatic_train**:
 - static : It contains pre-annotated and post-annotated images.
            In addition, there are txt files of the training results and the deep learning transition results from the automatic training.
 
-`data.yaml` : 20 dishs detection label is here
+`model_data/dish_classes.txt` : 20 dishs detection label is here
 
 ```yaml
-Chopsticks-cover AP
-Chopsticks-one AP
-Chopsticks-two AP
-Coffee AP
-Coffee-cup AP
-Coffee-dish AP
-Cup AP
-Fish-dish AP
-Paper AP
-Rice-bowl AP
-Soup-bowl AP
-Spoon AP
-Square-bowl AP
-Tea-cup AP
-Tea-dish AP
-Towel AP
-Towel-dish AP
-Waster-paper AP
-Water-cup AP
-Wine-cup AP
+Chopsticks-cover
+Chopsticks-one
+Chopsticks-two
+Coffee
+Coffee-cup
+Coffee-dish
+Cup
+Fish-dish
+Paper
+Rice-bowl
+Soup-bowl
+Spoon
+Square-bowl
+Tea-cup
+Tea-dish
+Towel
+Towel-dish
+Waster-paper
+Water-cup
+Wine-cup
 ```
 
 <details open>
