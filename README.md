@@ -1,4 +1,4 @@
-# AI model automatic generation software for
+# AI model automatic generation software for 20-dishs
 
 <!-- <h1 align="center">
   <a href="https://github.com/dec0dOS/amazing-github-template">
@@ -129,7 +129,7 @@ Default values are provided as an example to help you figure out what should be 
 
 | Name                       | Tips               | Description                                                                 |
 | -------------------------- | ------------------ | --------------------------------------------------------------------------- |
-| PROJECT_NAME               | automatic_train    | My legend project name                                                      |
+| PROJECT_NAME               | automatic_train    | My project name                                                      |
 | GITHUB_USERNAME            | ultra-supara       | My GitHub username                                                          |
 | FULL_NAME                  | sada atsushi       | My realname                                                                 |
 | OPEN_SOURCE_LICENSE        | MIT license        | Full OSS license                                                            |
@@ -141,7 +141,7 @@ Default values are provided as an example to help you figure out what should be 
 launch Flask app
 
 ```sh
-python app.py
+python3 app.py
 ```
 
 then , you may see this url [Home](http://127.0.0.1:8001/)
