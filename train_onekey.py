@@ -30,7 +30,7 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 # 学習パラメタの設定
 if __name__ == "__main__":
     imagesize = 32  #N*32(N=(1,20))
-    epochs = 50
+    epochs = 1
     batch_size = 2
     evalu_param = 'map'
     eager           = False
@@ -49,7 +49,7 @@ if __name__ == "__main__":
 
     #label_smoothing     = 0
 
-    Init_Epoch          = 0
+    Init_Epoch          = 1
     UnFreeze_Epoch      = epochs
     Unfreeze_batch_size = batch_size
 
@@ -60,7 +60,7 @@ if __name__ == "__main__":
 
     optimizer_type      = "adam"
     momentum            = 0.937
-    weight_decay        = 0
+    weight_decay        = 0.0005
 
     lr_decay_type       = 'cos'
 
