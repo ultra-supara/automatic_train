@@ -40,7 +40,7 @@ It is the best algorithm to automate the process of building the optimal model f
 
 1. Architecture
 
-<img width="600" alt="スクリーンショット 0005-05-08 3 26 59" src="https://user-images.githubusercontent.com/67861004/236695868-e9eaf4fa-b542-4ec0-b841-04f9be92daf3.png">
+<img width="1239" alt="スクリーンショット 0006-01-17 11 18 56" src="https://github.com/ultra-supara/automatic_train/assets/67861004/cf99eef6-2806-40af-8edf-ad0bb0f7b052">
 
 This is an algorithm that automatically learns and determines which combination of backbone and neck & head is optimal for the collected annotated image data, and automatically outputs the optimal AI model.
 
